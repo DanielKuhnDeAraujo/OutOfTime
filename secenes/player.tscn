@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2ih5y2lse8i7"]
+
+[ext_resource type="Script" uid="uid://ddcryylbmseba" path="res://scripts/player.gd" id="1_67aaq"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_i0ofs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67aaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i0ofs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8brib"]
+size = Vector2(73, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67aaq"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_67aaq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.0000002, 1)
+scale = Vector2(0.57031256, 0.84375)
+sprite_frames = SubResource("SpriteFrames_67aaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8brib")
+
+[node name="pegar_timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_67aaq")
+debug_color = Color(0.85960567, 0.36335176, 0, 0.41960785)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.16111757, 0.14379884)
+sprite_frames = SubResource("SpriteFrames_67aaq")
+
+[connection signal="timeout" from="pegar_timer" to="." method="_on_pegar_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

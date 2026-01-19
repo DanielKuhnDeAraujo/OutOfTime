@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3k2g35fpa4hn"]
+
+[ext_resource type="Script" uid="uid://b0kpb3o8kfp27" path="res://secenes/quadrado.gd" id="1_rydpl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbefh"]
+size = Vector2(34, 34)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_rydpl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hbefh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

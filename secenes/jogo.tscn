@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkmdt1bedki3f"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_gqj68"]
+[ext_resource type="PackedScene" uid="uid://b2ih5y2lse8i7" path="res://secenes/player.tscn" id="2_7cdr2"]
+[ext_resource type="PackedScene" uid="uid://3k2g35fpa4hn" path="res://secenes/quadrado.tscn" id="3_an2ke"]
+[ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7cdr2"]
+texture = ExtResource("1_gqj68")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_nt2a2"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_7cdr2")
+
+[node name="jogo" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_nt2a2")
+format = 2
+layer_0/tile_data = PackedInt32Array(655395, 1, 0, 655343, 1, 0, 655344, 1, 0, 655345, 1, 0, 655346, 1, 0, 655347, 1, 0, 655348, 1, 0, 655349, 1, 0, 655350, 1, 0, 655351, 1, 0, 655352, 1, 0, 655353, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_7cdr2")]
+position = Vector2(176, 121)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_an2ke")]
+position = Vector2(315, 190)
+
+[node name="SpriteInventario" type="Sprite2D" parent="."]
+position = Vector2(-473.5, -225.5)
+scale = Vector2(6.0937505, 6.21875)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-473.5, -225.5)
+scale = Vector2(6.0937505, 6.21875)
+texture = ExtResource("4_1gnu7")
