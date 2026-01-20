@@ -42,10 +42,10 @@ func _physics_process(delta: float) -> void:
 			pegar()
 		if Input.is_action_pressed("instanciar") and guardado :
 			instanciar()
-		if Input.is_action_pressed("futuro") :
+		if Input.is_action_just_pressed("futuro") :
 			get_parent().futuro()
 			viajando = true
-		if Input.is_action_pressed("passado") :
+		if Input.is_action_just_pressed("passado") :
 			get_parent().passado()
 			viajando = true
 func pegar() :
@@ -71,6 +71,7 @@ func instanciar() :
 	var obejto = load(ItemGuardadoCena).instantiate()
 	obejto.global_position = global_position
 	obejto.global_position.x += 50*direction
+	obejto.Idade =ItemGuardadoIdade
 	get_tree().root.get_child(0).add_child(obejto)
 	SpriteInventario.texture = null
 	label.text = "Nada"
