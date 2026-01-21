@@ -51,5 +51,10 @@ visible = false
 scale = Vector2(0.16111757, 0.14379884)
 sprite_frames = SubResource("SpriteFrames_67aaq")
 
+[node name="Jump_buffer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="pegar_timer" to="." method="_on_pegar_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Jump_buffer" to="." method="_on_jump_buffer_timeout"]
