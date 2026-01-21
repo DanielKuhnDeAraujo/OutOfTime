@@ -66,7 +66,7 @@ func _on_pegar_timer_timeout() -> void:
 	area_2d.monitoring = false
 	animated_sprite_2d_2.visible = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.pegavel :
+	if body.pegavel && not guardado :
 		ItemGuardadoCena = body.Cena
 		ItemGuardadoIdade = body.Idade
 		ItemGuardadoNome = body.Nome
