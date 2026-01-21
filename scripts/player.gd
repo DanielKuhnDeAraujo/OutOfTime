@@ -12,6 +12,7 @@ var ItemGuardadoNome
 var guardado  = false
 var viajando = false
 var direction
+var udirection
 const MAXSPEED = 300.0
 var SPEED: float
 const JUMP_VELOCITY = -400.0
@@ -38,6 +39,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = SPEED
 			animated_sprite_2d_2.position.x = 47*direction
 			area_2d.position.x=47*direction
+			if direction!= 0 :
+				udirection = direction
 		else:
 			SPEED = move_toward(SPEED, 0, friccao)
 			velocity.x = SPEED
@@ -75,7 +78,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func instanciar() :
 	var obejto = load(ItemGuardadoCena).instantiate()
 	obejto.global_position = global_position
-	obejto.global_position.x += 50*direction
+	obejto.global_position.x += 50*udirection
 	obejto.Idade =ItemGuardadoIdade
 	get_tree().root.get_child(0).add_child(obejto)
 	SpriteInventario.texture = null
