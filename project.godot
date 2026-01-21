@@ -38,6 +38,12 @@ futuro={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="background"
+2d_physics/layer_2="player"
+2d_physics/layer_3="objetos"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
