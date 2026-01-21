@@ -12,8 +12,11 @@ var ItemGuardadoNome
 var guardado  = false
 var viajando = false
 var direction
-const SPEED = 300.0
+const MAXSPEED = 300.0
+var SPEED: float
 const JUMP_VELOCITY = -400.0
+var aceleracao: float = 50
+var friccao: float = 70
 func _ready() -> void:
 	animated_sprite_2d_2.position.x = -47
 	area_2d.position.x=-47
@@ -31,11 +34,13 @@ func _physics_process(delta: float) -> void:
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		direction = Input.get_axis("ui_left", "ui_right")
 		if direction:
-			velocity.x = direction * SPEED
+			SPEED = move_toward(SPEED, MAXSPEED * direction, aceleracao)
+			velocity.x = SPEED
 			animated_sprite_2d_2.position.x = 47*direction
 			area_2d.position.x=47*direction
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			SPEED = move_toward(SPEED, 0, friccao)
+			velocity.x = SPEED
 		
 		move_and_slide()
 		if Input.is_action_pressed("pegar") and not guardado :
