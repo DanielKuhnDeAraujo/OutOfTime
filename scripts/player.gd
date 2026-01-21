@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var SpriteInventario = get_parent().get_node("SpriteInventario") 
 @onready var label = get_parent().get_node("Nome") 
+@onready var jump_buffer: Timer = $Jump_buffer
 
 var ItemGuardadoCena
 var ItemGuardadoSprite
@@ -18,6 +19,7 @@ var SPEED: float
 const JUMP_VELOCITY = -400.0
 var aceleracao: float = 50
 var friccao: float = 70
+var jump_bufferable: bool
 func _ready() -> void:
 	animated_sprite_2d_2.position.x = -47
 	area_2d.position.x=-47
@@ -27,10 +29,15 @@ func _physics_process(delta: float) -> void:
 	if not viajando :
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+		elif is_on_floor() and jump_bufferable:
+			pulo()
 		# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-
+		if Input.is_action_just_pressed("ui_accept"):
+			if  is_on_floor():
+				pulo()
+			elif !is_on_floor():
+				jump_buffer.start()
+				jump_bufferable = true
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		direction = Input.get_axis("ui_left", "ui_right")
@@ -46,9 +53,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = SPEED
 		
 		move_and_slide()
-		if Input.is_action_pressed("pegar") and not guardado :
+		if Input.is_action_just_pressed("pegar") and not guardado :
 			pegar()
-		if Input.is_action_pressed("instanciar") and guardado :
+		if Input.is_action_just_pressed("instanciar") and guardado :
 			instanciar()
 		if Input.is_action_just_pressed("futuro") :
 			get_parent().futuro()
@@ -84,3 +91,9 @@ func instanciar() :
 	SpriteInventario.texture = null
 	label.text = "Nada"
 	guardado = false
+
+func pulo():
+	velocity.y = JUMP_VELOCITY
+
+func _on_jump_buffer_timeout() -> void:
+	jump_bufferable = false
