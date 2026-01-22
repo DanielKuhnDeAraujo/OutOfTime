@@ -13,7 +13,6 @@ texture = ExtResource("2_xa44m")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-[ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_xa44m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7cdr2"]
 texture = ExtResource("1_gqj68")
@@ -67,5 +66,3 @@ label_settings = SubResource("LabelSettings_xa44m")
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_an2ke")]
 position = Vector2(171, 190)
-
-[node name="MenuDePausa" parent="." instance=ExtResource("6_xa44m")]
