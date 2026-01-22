@@ -9,6 +9,7 @@ var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
 var ItemGuardadoNome
+var Corpo
 var guardado  = false
 var viajando = false
 var direction
@@ -75,10 +76,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		SpriteInventario.texture = ItemGuardadoSprite
 		label.text = ItemGuardadoNome
 		guardado= true
+
 func instanciar() :
 	var obejto = load(ItemGuardadoCena).instantiate()
 	obejto.global_position = global_position
 	obejto.global_position.x += 50*udirection
+	#o erro aparece na linha aqui d baixo
 	obejto.Idade =ItemGuardadoIdade
 	get_tree().root.get_child(0).add_child(obejto)
 	SpriteInventario.texture = null

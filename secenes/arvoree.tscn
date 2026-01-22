@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://p8v7cfyltidu"]
+
+[ext_resource type="Script" uid="uid://dto6mvsdhwhmv" path="res://scripts/arvore.gd" id="1_wh2r1"]
+[ext_resource type="Texture2D" uid="uid://ck5swtxgt4ur8" path="res://assets/Semente.png" id="2_gdw7p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ioie2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh2r1"]
+size = Vector2(3.4951026, 6.8331757)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdw7p"]
+size = Vector2(14.601763, 6.4735346)
+
+[node name="Arvoree" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_wh2r1")
+
+[node name="Estado" type="Node2D" parent="."]
+
+[node name="Col_semente" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.99402964)
+shape = SubResource("CircleShape2D_ioie2")
+debug_color = Color(0.6077282, 0.50702417, 0.51697296, 0.41960785)
+
+[node name="Col_broto" type="CollisionShape2D" parent="."]
+scale = Vector2(6.437579, 5.561104)
+shape = SubResource("RectangleShape2D_wh2r1")
+disabled = true
+debug_color = Color(0.56335425, 0.5403773, 0.4065651, 0.41960785)
+
+[node name="Col_Folhas" type="CollisionShape2D" parent="."]
+position = Vector2(-1.9073486e-06, -57)
+scale = Vector2(6.437579, 5.561104)
+shape = SubResource("RectangleShape2D_gdw7p")
+disabled = true
+
+[node name="Semente" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_gdw7p")
