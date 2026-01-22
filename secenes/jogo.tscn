@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkmdt1bedki3f"]
+[gd_scene load_steps=12 format=3 uid="uid://bkmdt1bedki3f"]
 
 [ext_resource type="Script" uid="uid://ogobrvbjqmf1" path="res://scripts/jogo.gd" id="1_56hio"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_gqj68"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="2_xa44m"]
 [ext_resource type="PackedScene" uid="uid://3k2g35fpa4hn" path="res://secenes/quadrado.tscn" id="3_an2ke"]
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
+[ext_resource type="FontFile" uid="uid://bvfihk87sg2c0" path="res://assets/PixelOperator8-Bold.ttf" id="7_vhqen"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
 texture = ExtResource("2_xa44m")
@@ -24,6 +25,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7cdr2")
 sources/0 = SubResource("TileSetAtlasSource_vhqen")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xa44m"]
+font = ExtResource("7_vhqen")
+font_size = 8
 
 [node name="jogo" type="Node2D"]
 script = ExtResource("1_56hio")
@@ -44,19 +49,20 @@ position = Vector2(-74, 172)
 position = Vector2(80, 186)
 
 [node name="SpriteInventario" type="Sprite2D" parent="."]
-position = Vector2(-473.5, -225.5)
-scale = Vector2(6.0937505, 6.21875)
+position = Vector2(-198, 1)
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-473.5, -225.5)
-scale = Vector2(6.0937505, 6.21875)
+position = Vector2(-198, -1)
+scale = Vector2(2, 2)
 texture = ExtResource("4_1gnu7")
 
 [node name="Nome" type="Label" parent="."]
-offset_left = -572.0
-offset_top = -122.0
-offset_right = -382.0
-offset_bottom = -69.0
+offset_left = -228.0
+offset_top = 32.0
+offset_right = -38.0
+offset_bottom = 85.0
+label_settings = SubResource("LabelSettings_xa44m")
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_an2ke")]
 position = Vector2(171, 190)
