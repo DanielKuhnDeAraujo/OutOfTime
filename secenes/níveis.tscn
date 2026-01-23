@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3xd2fjsv21pw"]
 
-[ext_resource type="Script" uid="uid://3v35nbq3qcg6" path="res://scripts/tela_inicial.gd" id="1_xo5vr"]
+[ext_resource type="Script" uid="uid://d4f0xt1ogydfq" path="res://scripts/níveis.gd" id="1_xo5vr"]
 
 [node name="TelaInicial" type="Control"]
 layout_mode = 3
@@ -72,6 +72,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "retornar ao menu principal"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/lvl 1" to="." method="_on_levels_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/lvl 2" to="." method="_on_sair_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/lvl 3" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/lvl 1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/lvl 2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/lvl 3" to="." method="_on_lvl_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/retornar ao menu" to="." method="_on_retornar_ao_menu_pressed"]

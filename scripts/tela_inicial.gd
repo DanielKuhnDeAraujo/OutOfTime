@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_levels_pressed() -> void:
-	print("APERTOU LEVELS")
+	get_tree().change_scene_to_file("res://secenes/níveis.tscn")
 
 
 func _on_opções_pressed() -> void:
@@ -20,4 +20,4 @@ func _on_opções_pressed() -> void:
 
 
 func _on_sair_pressed() -> void:
-	queue_free()
+	get_tree().quit()
