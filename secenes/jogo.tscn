@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkmdt1bedki3f"]
+[gd_scene load_steps=12 format=3 uid="uid://bkmdt1bedki3f"]
 
 [ext_resource type="Script" uid="uid://ogobrvbjqmf1" path="res://scripts/jogo.gd" id="1_56hio"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_gqj68"]
 [ext_resource type="PackedScene" uid="uid://b2ih5y2lse8i7" path="res://secenes/player.tscn" id="2_7cdr2"]
+[ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="2_xa44m"]
 [ext_resource type="PackedScene" uid="uid://3k2g35fpa4hn" path="res://secenes/quadrado.tscn" id="3_an2ke"]
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
-[ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_xa44m"]
+[ext_resource type="FontFile" uid="uid://bvfihk87sg2c0" path="res://assets/PixelOperator8-Bold.ttf" id="7_vhqen"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
+texture = ExtResource("2_xa44m")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7cdr2"]
 texture = ExtResource("1_gqj68")
@@ -17,39 +24,45 @@ texture = ExtResource("1_gqj68")
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7cdr2")
+sources/0 = SubResource("TileSetAtlasSource_vhqen")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xa44m"]
+font = ExtResource("7_vhqen")
+font_size = 8
 
 [node name="jogo" type="Node2D"]
 script = ExtResource("1_56hio")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 95)
+zoom = Vector2(2.5, 2.5)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nt2a2")
 format = 2
-layer_0/tile_data = PackedInt32Array(655395, 1, 0, 655343, 1, 0, 655344, 1, 0, 655345, 1, 0, 655346, 1, 0, 655347, 1, 0, 655348, 1, 0, 655349, 1, 0, 655350, 1, 0, 655351, 1, 0, 655352, 1, 0, 655353, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0)
+layer_0/tile_data = PackedInt32Array(655395, 1, 0, 524270, 0, 0, 524271, 0, 0, 524272, 0, 0, 524273, 0, 0, 524274, 0, 0, 524275, 0, 0, 524276, 0, 0, 524277, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_7cdr2")]
 position = Vector2(-74, 172)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_an2ke")]
-position = Vector2(315, 190)
+position = Vector2(80, 186)
 
 [node name="SpriteInventario" type="Sprite2D" parent="."]
-position = Vector2(-473.5, -225.5)
-scale = Vector2(6.0937505, 6.21875)
+position = Vector2(-198, 1)
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-473.5, -225.5)
-scale = Vector2(6.0937505, 6.21875)
+position = Vector2(-198, -1)
+scale = Vector2(2, 2)
 texture = ExtResource("4_1gnu7")
 
 [node name="Nome" type="Label" parent="."]
-offset_left = -572.0
-offset_top = -122.0
-offset_right = -382.0
-offset_bottom = -69.0
+offset_left = -228.0
+offset_top = 32.0
+offset_right = -38.0
+offset_bottom = 85.0
+label_settings = SubResource("LabelSettings_xa44m")
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("3_an2ke")]
 position = Vector2(171, 190)
-
-[node name="MenuDePausa" parent="." instance=ExtResource("6_xa44m")]
