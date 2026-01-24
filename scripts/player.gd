@@ -9,6 +9,7 @@ var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
 var ItemGuardadoNome
+var Corpo
 var guardado  = false
 var interagindo =false
 var viajando = false
