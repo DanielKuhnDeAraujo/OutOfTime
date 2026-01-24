@@ -19,8 +19,8 @@ const JUMP_VELOCITY = -400.0
 var aceleracao: float = 50
 var friccao: float = 70
 func _ready() -> void:
-	animated_sprite_2d_2.position.x = -47
-	area_2d.position.x=-47
+	animated_sprite_2d_2.position.x = -20
+	area_2d.position.x=-20
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			SPEED = move_toward(SPEED, MAXSPEED * direction, aceleracao)
 			velocity.x = SPEED
-			animated_sprite_2d_2.position.x = 47*direction
-			area_2d.position.x=47*direction
+			animated_sprite_2d_2.position.x = 20*direction
+			area_2d.position.x=20*direction
 			if direction!= 0 :
 				udirection = direction
 		else:
@@ -78,7 +78,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func instanciar() :
 	var obejto = load(ItemGuardadoCena).instantiate()
 	obejto.global_position = global_position
-	obejto.global_position.x += 50*udirection
+	obejto.global_position.x += 20*udirection
 	obejto.Idade =ItemGuardadoIdade
 	get_tree().root.get_child(0).add_child(obejto)
 	SpriteInventario.texture = null
