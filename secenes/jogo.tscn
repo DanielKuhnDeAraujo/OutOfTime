@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="2_xa44m"]
 [ext_resource type="PackedScene" uid="uid://3k2g35fpa4hn" path="res://secenes/quadrado.tscn" id="3_an2ke"]
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
-[ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_xa44m"]
+[ext_resource type="PackedScene" uid="uid://c07h200b001pl" path="res://secenes/pausa.tscn" id="6_xa44m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
 texture = ExtResource("2_xa44m")
