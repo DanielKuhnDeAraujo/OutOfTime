@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtiyeog25tj4k"
-path="res://.godot/imported/tileholderset.png-4663605c51320f379c9507f4a458aa92.ctex"
+uid="uid://cfl74f3lp803x"
+path="res://.godot/imported/spritesheet_protagonista.png-3df1086dcdf02730daded2a01c635dd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileholderset.png"
-dest_files=["res://.godot/imported/tileholderset.png-4663605c51320f379c9507f4a458aa92.ctex"]
+source_file="res://assets/spritesheet_protagonista.png"
+dest_files=["res://.godot/imported/spritesheet_protagonista.png-3df1086dcdf02730daded2a01c635dd9.ctex"]
 
 [params]
 
