@@ -10,6 +10,7 @@ var ItemGuardadoSprite
 var ItemGuardadoIdade
 var ItemGuardadoNome
 var guardado  = false
+var interagindo =false
 var viajando = false
 var direction
 var udirection
@@ -47,8 +48,10 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		if Input.is_action_pressed("pegar") and not guardado :
+			interagir()
+		if Input.is_action_just_pressed("interagir") :
 			pegar()
-		if Input.is_action_pressed("instanciar") and guardado :
+		if Input.is_action_just_pressed("instanciar") and guardado :
 			instanciar()
 		if Input.is_action_just_pressed("futuro") :
 			get_parent().futuro()
@@ -60,13 +63,20 @@ func pegar() :
 	pegar_timer.start()	
 	area_2d.monitoring = true
 	animated_sprite_2d_2.visible = true
-	
+	interagindo=true
+func interagir() :
+	pegar_timer.start()	
+	area_2d.monitoring = true
+	animated_sprite_2d_2.visible = true
 
 func _on_pegar_timer_timeout() -> void:
 	area_2d.monitoring = false
 	animated_sprite_2d_2.visible = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.pegavel && not guardado :
+	if body.has_method("interagir") and interagindo:
+		body.interagir(ItemGuardadoCena,ItemGuardadoIdade,ItemGuardadoNome,ItemGuardadoSprite)
+		interagindo= false
+	elif body.pegavel && not guardado  :
 		ItemGuardadoCena = body.Cena
 		ItemGuardadoIdade = body.Idade
 		ItemGuardadoNome = body.Nome
@@ -75,6 +85,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		SpriteInventario.texture = ItemGuardadoSprite
 		label.text = ItemGuardadoNome
 		guardado= true
+		get_parent().finale(ItemGuardadoCena,ItemGuardadoIdade,ItemGuardadoNome,ItemGuardadoSprite)
 func instanciar() :
 	var obejto = load(ItemGuardadoCena).instantiate()
 	obejto.global_position = global_position

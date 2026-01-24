@@ -30,4 +30,6 @@ func passado():
 		if i.has_method("passado") :
 			i.passado()
 			viajantes+=1
-	
+@warning_ignore("unused_parameter")
+func finale(cena ,idade, nome ,sprite) :
+	pass
