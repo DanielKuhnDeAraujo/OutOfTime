@@ -41,6 +41,3 @@ func checar_idade() :
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-@warning_ignore("unused_parameter")
-func interagir(cena ,idade, nome ,sprite) :
-	print("interação" )
