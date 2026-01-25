@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yu13mdbtv4bn"
-path="res://.godot/imported/Muda.png-10d4eacb2e447016d5176976be1d04e2.ctex"
+uid="uid://1invpd4dl12y"
+path="res://.godot/imported/uvas_item-Sheet.png-f57cd6b5d64c80827222a1ea03564175.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites_Árvore/Muda/Muda.png"
-dest_files=["res://.godot/imported/Muda.png-10d4eacb2e447016d5176976be1d04e2.ctex"]
+source_file="res://assets/uvas_item-Sheet.png"
+dest_files=["res://.godot/imported/uvas_item-Sheet.png-f57cd6b5d64c80827222a1ea03564175.ctex"]
 
 [params]
 

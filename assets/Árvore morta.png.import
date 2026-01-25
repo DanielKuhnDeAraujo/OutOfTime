@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlly6erkluj28"
-path="res://.godot/imported/Árvore morta.png-fc4ab86db4c1d5a055c854efc6dff3df.ctex"
+uid="uid://bscp57mt7avsl"
+path="res://.godot/imported/Árvore morta.png-61c98e5f8af35e69a203b42ad355f8bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites_Árvore/Árvore morta/Árvore morta.png"
-dest_files=["res://.godot/imported/Árvore morta.png-fc4ab86db4c1d5a055c854efc6dff3df.ctex"]
+source_file="res://assets/Árvore morta.png"
+dest_files=["res://.godot/imported/Árvore morta.png-61c98e5f8af35e69a203b42ad355f8bf.ctex"]
 
 [params]
 
