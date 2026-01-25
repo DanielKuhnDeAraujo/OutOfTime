@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwfg1oydh5jej"
-path="res://.godot/imported/Broto.png-5733115b510314c4378dd7cf944129bd.ctex"
+uid="uid://yu13mdbtv4bn"
+path="res://.godot/imported/Muda.png-10d4eacb2e447016d5176976be1d04e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Broto.png"
-dest_files=["res://.godot/imported/Broto.png-5733115b510314c4378dd7cf944129bd.ctex"]
+source_file="res://assets/Sprites_Árvore/Muda/Muda.png"
+dest_files=["res://.godot/imported/Muda.png-10d4eacb2e447016d5176976be1d04e2.ctex"]
 
 [params]
 

@@ -2,9 +2,12 @@ extends RigidBody2D
 
 @onready var sprite_2d: Sprite2D = $Semente
 
+@onready var muda_pos: Marker2D = $Muda_pos
+@onready var tree_pos: Marker2D = $Tree_pos
+
 var Idade = -10 
-var Sprite
-var Cena = "res://secenes/arvore.tscn"
+var Sprite = "res://assets/Semente.png"
+var Cena = "res://secenes/arvoree.tscn"
 var Nome = "Arvore"
 var pegavel = true
 
@@ -14,8 +17,8 @@ var Sfuturo
 
 # Called when the node enters the scene tree for the first time.
 func preload_resources() :
-	Spassado= preload("res://assets/Semente.png")
-	Spresente= preload("res://assets/Broto.png")
+	Spassado= preload("res://assets/Muda.png")
+	Spresente= preload("res://assets/Semente.png")
 	Sfuturo= preload("res://assets/Arvore.png")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,12 +37,19 @@ func checar_idade() :
 	if Idade < 0 : #deixar vazio
 		sprite_2d.texture = Spassado
 		Sprite = Spassado
+		
 	if Idade == 0 :
+		
 		sprite_2d.texture = Spresente
+		sprite_2d.global_position = muda_pos.global_position
 		Sprite = Spresente
+		
 	if Idade > 0 :
+		pegavel = false
 		sprite_2d.texture = Sfuturo
 		Sprite = Sfuturo
+		sprite_2d.global_position = tree_pos.global_position
+		sprite_2d.scale = Vector2(0.192, 0.192)
 		$Col_Folhas.disabled = false
 		
 	else:

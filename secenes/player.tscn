@@ -1,19 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2ih5y2lse8i7"]
+[gd_scene load_steps=18 format=3 uid="uid://b2ih5y2lse8i7"]
 
 [ext_resource type="Script" uid="uid://ddcryylbmseba" path="res://scripts/player.gd" id="1_67aaq"]
-[ext_resource type="Texture2D" uid="uid://cwkvrr3145r38" path="res://assets/placeholderman.png" id="2_67aaq"]
+[ext_resource type="Texture2D" uid="uid://cfl74f3lp803x" path="res://assets/spritesheet_protagonista.png" id="2_esbok"]
 [ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="3_8brib"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_67aaq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_67aaq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8brib"]
 size = Vector2(32, 32)
@@ -32,14 +21,103 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_esbok"]
+atlas = ExtResource("2_esbok")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8brib"]
+atlas = ExtResource("2_esbok")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5s6b"]
+atlas = ExtResource("2_esbok")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45vra"]
+atlas = ExtResource("2_esbok")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_876qx"]
+atlas = ExtResource("2_esbok")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn8wb"]
+atlas = ExtResource("2_esbok")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt1s3"]
+atlas = ExtResource("2_esbok")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wpri"]
+atlas = ExtResource("2_esbok")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijev8"]
+atlas = ExtResource("2_esbok")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50356"]
+atlas = ExtResource("2_esbok")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67aaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esbok")
+}],
+"loop": true,
+"name": &"descendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8brib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5s6b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45vra")
+}],
+"loop": true,
+"name": &"subindo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_876qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn8wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt1s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wpri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijev8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50356")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 10.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_67aaq")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.0000002, 1)
-sprite_frames = SubResource("SpriteFrames_67aaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
@@ -55,7 +133,7 @@ collision_mask = 4
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 42)
+position = Vector2(1, 12)
 shape = SubResource("RectangleShape2D_67aaq")
 debug_color = Color(0.85960567, 0.36335176, 0, 0.41960785)
 
@@ -63,6 +141,11 @@ debug_color = Color(0.85960567, 0.36335176, 0, 0.41960785)
 visible = false
 scale = Vector2(0.28125, 0.28124997)
 sprite_frames = SubResource("SpriteFrames_esbok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 3)
+sprite_frames = SubResource("SpriteFrames_67aaq")
+animation = &"descendo"
 
 [connection signal="timeout" from="pegar_timer" to="." method="_on_pegar_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
