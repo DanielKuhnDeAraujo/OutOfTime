@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var SpriteInventario = get_parent().get_node("SpriteInventario") 
 @onready var label = get_parent().get_node("Nome") 
-
+var liberado
 var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
@@ -26,7 +26,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not viajando :
+	if not viajando  && liberado:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		# Handle jump.
