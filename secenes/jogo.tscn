@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkmdt1bedki3f"]
+[gd_scene load_steps=9 format=3 uid="uid://bkmdt1bedki3f"]
 
 [ext_resource type="Script" uid="uid://ogobrvbjqmf1" path="res://scripts/jogo.gd" id="1_56hio"]
 [ext_resource type="PackedScene" uid="uid://b2ih5y2lse8i7" path="res://secenes/player.tscn" id="2_7cdr2"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://3k2g35fpa4hn" path="res://secenes/quadrado.tscn" id="3_an2ke"]
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
 [ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_xa44m"]
-[ext_resource type="PackedScene" uid="uid://p8v7cfyltidu" path="res://secenes/arvoree.tscn" id="7_vhqen"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
 texture = ExtResource("2_xa44m")
@@ -59,6 +58,3 @@ position = Vector2(39, 172)
 [node name="MenuDePausa" parent="." instance=ExtResource("6_xa44m")]
 offset_top = 152.0
 offset_bottom = 152.0
-
-[node name="Arvoree" parent="." instance=ExtResource("7_vhqen")]
-position = Vector2(-170, 203)
