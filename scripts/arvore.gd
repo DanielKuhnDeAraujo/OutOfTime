@@ -28,7 +28,7 @@ func preload_resources() :
 	Sfuturo= preload("res://assets/Arvore.png")
 	Smorta = preload("res://assets/Árvore morta.png")
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void: 
 	preload_resources()
 	checar_idade()
 func futuro() :

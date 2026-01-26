@@ -16,10 +16,10 @@ var interagindo =false
 var viajando = false
 var direction
 var udirection
-const MAXSPEED = 300.0
+const MAXSPEED = 280.0
 var SPEED: float
-const JUMP_VELOCITY = -400.0
-var aceleracao: float = 50
+const JUMP_VELOCITY = -350.0
+var aceleracao: float = 40
 var friccao: float = 70
 func _ready() -> void:
 	animated_sprite_2d_2.position.x = -20

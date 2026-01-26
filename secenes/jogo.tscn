@@ -62,3 +62,6 @@ offset_bottom = 152.0
 
 [node name="Arvoree" parent="." instance=ExtResource("7_vhqen")]
 position = Vector2(-170, 203)
+
+[node name="Arvoree2" parent="." instance=ExtResource("7_vhqen")]
+position = Vector2(-78, 203)
