@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1invpd4dl12y"
-path="res://.godot/imported/uvas_item-Sheet.png-f57cd6b5d64c80827222a1ea03564175.ctex"
+uid="uid://cyrco5rpcy85y"
+path="res://.godot/imported/Rei.png-02a4dfd28f61b8057b5874d147b04987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/uvas_item-Sheet.png"
-dest_files=["res://.godot/imported/uvas_item-Sheet.png-f57cd6b5d64c80827222a1ea03564175.ctex"]
+source_file="res://assets/Rei.png"
+dest_files=["res://.godot/imported/Rei.png-02a4dfd28f61b8057b5874d147b04987.ctex"]
 
 [params]
 

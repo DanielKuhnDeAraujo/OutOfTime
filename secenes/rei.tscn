@@ -1,0 +1,5 @@
+[gd_scene load_steps=0 format=3 uid="uid://vp1swpqu6mtq"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_layer = 16
+collision_mask = 16

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var SpriteInventario = get_parent().get_node("SpriteInventario") 
 @onready var label = get_parent().get_node("Nome") 
 var eixo
+var liberado
 var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
@@ -16,10 +17,10 @@ var interagindo =false
 var viajando = false
 var direction
 var udirection
-const MAXSPEED = 300.0
+const MAXSPEED = 280.0
 var SPEED: float
-const JUMP_VELOCITY = -400.0
-var aceleracao: float = 50
+const JUMP_VELOCITY = -350.0
+var aceleracao: float = 40
 var friccao: float = 70
 func _ready() -> void:
 	animated_sprite_2d_2.position.x = -20
@@ -27,7 +28,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not viajando :
+	if not viajando  && liberado:
 		if not is_on_floor():
 			if velocity.y > JUMP_VELOCITY:
 				animacao.play("subindo")
