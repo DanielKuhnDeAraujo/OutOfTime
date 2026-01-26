@@ -6,6 +6,8 @@ var filhos
 @onready var rei: AnimatableBody2D = $rei
 @onready var tempo: Label = $tempo
 @onready var cena_1: Marker2D = $cena1
+@onready var fala_timer: Timer = $"fala timer"
+@onready var transição: Sprite2D = $Transição
 var viajantes
 var viajando:bool = false 
 var viagem = false
@@ -32,7 +34,26 @@ func _process(delta: float) -> void:
 	match cena :
 		1:
 			rei.position = rei.position.move_toward(cena_1.position, 100 * delta)
-		
+			if rei.position== cena_1.position :
+				rei.fala("Welcome to the Far Realm. You've\ntravel to our dimension,a dimension \nout of time")
+				fala_timer.start()
+				cena=2
+				
+		3 :
+			rei.fala("I will teach you how to properly \ntravel time, but when you go back to\nyour time, you will have to do some\njobs for us")
+			fala_timer.start()
+			cena = 4
+		5:
+			rei.fala("First things first let me transport\nus to another place")
+			fala_timer.start()
+			cena = 6
+		7:
+			if transição.modulate.a < 1 :
+				transição.modulate.a += 0.25*delta
+			else :
+				get_tree().change_scene_to_file("res://secenes/tutoras2.tscn")
+			
+			
 func futuro():
 	viajando = true 
 	viajantes =0
@@ -58,3 +79,13 @@ func cutscene1() :
 	tempo.queue_free()
 	cena = 1
 	
+
+
+func _on_fala_timer_timeout() -> void:
+	match cena:
+		2 :
+			cena = 3
+		4: 
+			cena =5
+		6: 
+			cena =7

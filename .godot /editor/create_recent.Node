@@ -1,0 +1,8 @@
+Timer
+Label
+Marker2D
+Node
+AnimatedSprite2D
+AnimatableBody2D
+CollisionShape2D
+RigidBody2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bl12faj0ryiou"]
+[gd_scene load_steps=16 format=3 uid="uid://bl12faj0ryiou"]
 
 [ext_resource type="Script" uid="uid://dh2hxwic525j4" path="res://scripts/tutoras.gd" id="1_b2yym"]
 [ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="2_54foe"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="5_hvkp7"]
 [ext_resource type="PackedScene" uid="uid://cwapcce32hvpp" path="res://secenes/reiamarelo.tscn" id="6_ja8bg"]
 [ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_k3e5u"]
-[ext_resource type="Texture2D" uid="uid://bu63x8ry4k64h" path="res://assets/placeholderback.png" id="7_b2yym"]
-[ext_resource type="Texture2D" uid="uid://ckgo5f0egov3o" path="res://assets/back2place.png" id="8_hj14y"]
+[ext_resource type="Texture2D" uid="uid://6itrrr0g38w8" path="res://assets/floresta fundo.png" id="8_mtfr6"]
+[ext_resource type="Texture2D" uid="uid://6m4tm7jpgx76" path="res://assets/fundo- ampulheta.png" id="9_mtfr6"]
 [ext_resource type="Script" uid="uid://hn0gp00bjexm" path="res://scripts/dimensiontrigger.gd" id="10_mtfr6"]
+[ext_resource type="Texture2D" uid="uid://uqv6qr6n356k" path="res://assets/transição.png" id="11_yjioj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
 texture = ExtResource("2_54foe")
@@ -72,14 +73,16 @@ position = Vector2(234, -44)
 
 [node name="Placeholderback" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(-1, 137)
-texture = ExtResource("7_b2yym")
+position = Vector2(-1, 133)
+scale = Vector2(1, 1.0307692)
+texture = ExtResource("8_mtfr6")
 
 [node name="Back2Place" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
-position = Vector2(-3, 136)
-texture = ExtResource("8_hj14y")
+position = Vector2(-0.25, 132)
+scale = Vector2(1.0119306, 1.0307692)
+texture = ExtResource("9_mtfr6")
 
 [node name="dimensiontrigger" type="Node" parent="."]
 script = ExtResource("10_mtfr6")
@@ -92,5 +95,17 @@ offset_bottom = 178.0
 text = "PRESS V TO GO TO THE FUTURE"
 label_settings = SubResource("LabelSettings_hj14y")
 
+[node name="fala timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="cena1" type="Marker2D" parent="."]
 position = Vector2(143, 91)
+
+[node name="Transição" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(12.999977, 136.5)
+scale = Vector2(1.2285714, 1.4703704)
+texture = ExtResource("11_yjioj")
+
+[connection signal="timeout" from="fala timer" to="." method="_on_fala_timer_timeout"]

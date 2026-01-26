@@ -5,11 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cfl74f3lp803x" path="res://assets/spritesheet_protagonista.png" id="2_esbok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8brib"]
-<<<<<<< HEAD
-size = Vector2(28, 29)
-=======
 size = Vector2(22, 29)
->>>>>>> 5d9299a81921faf0d4c3adc4c71e496fb20db0d3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67aaq"]
 size = Vector2(10, 10)

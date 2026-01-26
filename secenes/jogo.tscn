@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkmdt1bedki3f"]
+[gd_scene load_steps=12 format=3 uid="uid://bkmdt1bedki3f"]
 
 [ext_resource type="Script" uid="uid://ogobrvbjqmf1" path="res://scripts/jogo.gd" id="1_56hio"]
 [ext_resource type="PackedScene" uid="uid://b2ih5y2lse8i7" path="res://secenes/player.tscn" id="2_7cdr2"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
 [ext_resource type="FontFile" uid="uid://bvfihk87sg2c0" path="res://assets/PixelOperator8-Bold.ttf" id="6_vhqen"]
 [ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_xa44m"]
+[ext_resource type="Texture2D" uid="uid://uqv6qr6n356k" path="res://assets/transição.png" id="8_xypy8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xa44m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
 texture = ExtResource("2_xa44m")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -18,7 +19,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 8388609
-sources/0 = SubResource("TileSetAtlasSource_xa44m")
+sources/0 = SubResource("TileSetAtlasSource_vhqen")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xypy8"]
 font = ExtResource("6_vhqen")
@@ -65,3 +66,8 @@ position = Vector2(39, 172)
 visible = false
 offset_top = 152.0
 offset_bottom = 152.0
+
+[node name="Transição" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(7, 134)
+texture = ExtResource("8_xypy8")

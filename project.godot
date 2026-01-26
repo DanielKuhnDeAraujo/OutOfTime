@@ -13,6 +13,7 @@ config_version=5
 config/name="OutOfTime"
 run/main_scene="uid://bkmdt1bedki3f"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/image="res://assets/WhatsApp Video 2026-01-26 at 11.55.36.mp4"
 config/icon="res://icon.svg"
 
 [dotnet]

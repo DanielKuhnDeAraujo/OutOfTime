@@ -1,0 +1,11 @@
+res://secenes/jogo.tscn
+res://scripts/player.gd
+res://secenes/tutoras.tscn
+res://secenes/reiamarelo.tscn
+res://scripts/jogo.gd
+res://secenes/quadrado.tscn
+res://secenes/quadrado.gd
+res://secenes/player.tscn
+res://scripts/tutoras.gd
+res://scripts/dimensiontrigger.gd
+res://scripts/reiamarelo.gd

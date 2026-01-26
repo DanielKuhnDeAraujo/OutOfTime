@@ -87,10 +87,6 @@ func checar_idade() :
 		sprite_2d.position = tree_pos.position
 		Sprite = Smorta
 		
-		
-@warning_ignore("unused_parameter")
-func interagir(cena ,idade, nome ,sprite) :
-	print(" Quadrado interação" )
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 	

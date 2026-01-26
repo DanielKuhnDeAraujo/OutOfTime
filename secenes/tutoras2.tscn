@@ -1,0 +1,111 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmh6pxxai1qfd"]
+
+[ext_resource type="Script" uid="uid://dh2hxwic525j4" path="res://scripts/tutoras.gd" id="1_hfygs"]
+[ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="2_ue1cj"]
+[ext_resource type="PackedScene" uid="uid://b2ih5y2lse8i7" path="res://secenes/player.tscn" id="3_ky8nk"]
+[ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_m05gl"]
+[ext_resource type="FontFile" uid="uid://bvfihk87sg2c0" path="res://assets/PixelOperator8-Bold.ttf" id="5_uavtn"]
+[ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_f30ro"]
+[ext_resource type="PackedScene" uid="uid://cwapcce32hvpp" path="res://secenes/reiamarelo.tscn" id="7_a8q6u"]
+[ext_resource type="Texture2D" uid="uid://6itrrr0g38w8" path="res://assets/floresta fundo.png" id="8_lxeda"]
+[ext_resource type="Texture2D" uid="uid://6m4tm7jpgx76" path="res://assets/fundo- ampulheta.png" id="9_qyo7y"]
+[ext_resource type="Script" uid="uid://hn0gp00bjexm" path="res://scripts/dimensiontrigger.gd" id="10_x6mr5"]
+[ext_resource type="Texture2D" uid="uid://uqv6qr6n356k" path="res://assets/transição.png" id="11_oyuen"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
+texture = ExtResource("2_ue1cj")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_nt2a2"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 8388609
+sources/0 = SubResource("TileSetAtlasSource_vhqen")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtfr6"]
+font = ExtResource("5_uavtn")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_hj14y"]
+font = ExtResource("5_uavtn")
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="jogo2" type="Node2D"]
+script = ExtResource("1_hfygs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 133)
+zoom = Vector2(2.5, 2.5)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_nt2a2")
+format = 2
+layer_0/tile_data = PackedInt32Array(655395, 1, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_ky8nk")]
+position = Vector2(-198, 205)
+
+[node name="SpriteInventario" type="Sprite2D" parent="."]
+position = Vector2(-195, 38)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-195, 38)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("4_m05gl")
+
+[node name="Nome" type="Label" parent="."]
+offset_left = -233.0
+offset_top = 70.0
+offset_right = -43.0
+offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_mtfr6")
+
+[node name="MenuDePausa" parent="." instance=ExtResource("6_f30ro")]
+visible = false
+offset_top = 152.0
+offset_bottom = 152.0
+
+[node name="rei" parent="." instance=ExtResource("7_a8q6u")]
+position = Vector2(234, -44)
+
+[node name="Placeholderback" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1, 133)
+scale = Vector2(1, 1.0307692)
+texture = ExtResource("8_lxeda")
+
+[node name="Back2Place" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+position = Vector2(-0.25, 132)
+scale = Vector2(1.0119306, 1.0307692)
+texture = ExtResource("9_qyo7y")
+
+[node name="dimensiontrigger" type="Node" parent="."]
+script = ExtResource("10_x6mr5")
+
+[node name="tempo" type="Label" parent="."]
+offset_left = -171.0
+offset_top = 125.0
+offset_right = 213.0
+offset_bottom = 178.0
+text = "PRESS V TO GO TO THE FUTURE"
+label_settings = SubResource("LabelSettings_hj14y")
+
+[node name="fala timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="cena1" type="Marker2D" parent="."]
+position = Vector2(143, 91)
+
+[node name="Transição" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(12.999977, 136.5)
+scale = Vector2(1.2285714, 1.4703704)
+texture = ExtResource("11_oyuen")
+
+[connection signal="timeout" from="fala timer" to="." method="_on_fala_timer_timeout"]
