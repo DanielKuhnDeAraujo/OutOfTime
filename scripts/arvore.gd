@@ -47,24 +47,27 @@ func checar_idade() :
 		sprite_2d.texture = Spassado
 		Sprite = Spassado
 		col_semente.disabled = false
+		set_collision_layer_value(3, false)
 	else:
 		rotation = 0
-
-		
-		
+		set_collision_layer_value(3, true)
 		
 	if Idade == 0 :
+		
 		sprite_2d.scale = Vector2(1,1)
 		rotation = 0
 		pegavel = true
-		sprite_2d.texture = Spresente
+		sprite_2d.texture = Spresente 
 		sprite_2d.position = muda_pos.position
 		Sprite = Spresente
+		$Col_Folhas.disabled = false
+		col_broto.disabled = false
 		
-		
+	else:
+		col_broto.disabled = true
 		
 	if Idade > 0 and Idade < 40:
-		set_collision_layer_value(3, true)
+		$Col_Folhas.disabled = false
 		sprite_2d.scale = Vector2(0.186, 0.186)
 		
 		pegavel = false
@@ -72,10 +75,9 @@ func checar_idade() :
 		Sprite = Sfuturo
 		sprite_2d.position = tree_pos.position
 
-		$Col_Folhas.disabled = false
+		
 		
 	else:
-		set_collision_layer_value(3, false)
 		$Col_Folhas.disabled = true
 		
 	if Idade >= 40:

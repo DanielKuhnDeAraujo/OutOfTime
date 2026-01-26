@@ -13,11 +13,9 @@ size = Vector2(3.106758, 6.1138945)
 size = Vector2(14.601763, 7.912099)
 
 [node name="Arvoree" type="RigidBody2D"]
-collision_layer = 8388608
+collision_layer = 8388612
 collision_mask = 5
 script = ExtResource("1_wh2r1")
-
-[node name="Estado" type="Node2D" parent="."]
 
 [node name="Col_semente" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
