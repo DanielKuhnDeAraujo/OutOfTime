@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var animacao: AnimatedSprite2D = $AnimatedSprite2D
 @onready var SpriteInventario = get_parent().get_node("SpriteInventario") 
 @onready var label = get_parent().get_node("Nome") 
-
+var eixo
 var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
@@ -44,8 +44,11 @@ func _physics_process(delta: float) -> void:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		direction = Input.get_axis("ui_left", "ui_right")
+		eixo = Input.get_axis("ui_up","ui_down")
 
-		
+		if eixo :
+			animated_sprite_2d_2.position.y = 16*eixo
+			area_2d.position.y=16*eixo
 		if direction:
 			animacao.scale.x = direction
 			if is_on_floor():
@@ -56,6 +59,7 @@ func _physics_process(delta: float) -> void:
 			area_2d.position.x=20*direction
 			if direction!= 0 :
 				udirection = direction
+		
 		else:
 			if is_on_floor():
 				animacao.play("idle")
@@ -64,9 +68,9 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		if Input.is_action_pressed("pegar") and not guardado :
-			interagir()
-		if Input.is_action_just_pressed("interagir") :
 			pegar()
+		if Input.is_action_just_pressed("interagir") :
+			interagir()
 		if Input.is_action_just_pressed("instanciar") and guardado :
 			instanciar()
 		if Input.is_action_just_pressed("futuro") :
@@ -79,11 +83,13 @@ func pegar() :
 	pegar_timer.start()	
 	area_2d.monitoring = true
 	animated_sprite_2d_2.visible = true
-	interagindo=true
+	
+	
 func interagir() :
 	pegar_timer.start()	
 	area_2d.monitoring = true
 	animated_sprite_2d_2.visible = true
+	interagindo=true
 
 func _on_pegar_timer_timeout() -> void:
 	area_2d.monitoring = false

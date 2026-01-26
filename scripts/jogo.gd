@@ -33,4 +33,4 @@ func passado():
 	
 @warning_ignore("unused_parameter")
 func finale(cena ,idade, nome ,sprite) :
-	print("interação" )
+	pass
