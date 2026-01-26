@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1pjlftgr8b28"
-path="res://.godot/imported/uvas_item-Sheet.png-f57cd6b5d64c80827222a1ea03564175.ctex"
+uid="uid://cpseyr5b106yg"
+path="res://.godot/imported/Transição para árvore madura.png-d364e6484741619f79c16af5ee045b8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/uvas_item-Sheet.png"
-dest_files=["res://.godot/imported/uvas_item-Sheet.png-f57cd6b5d64c80827222a1ea03564175.ctex"]
+source_file="res://assets/Sprites_Árvore/Árvore_madura/Transição até madura/Transição para árvore madura.png"
+dest_files=["res://.godot/imported/Transição para árvore madura.png-d364e6484741619f79c16af5ee045b8c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwfg1oydh5jej"
-path="res://.godot/imported/Broto.png-5733115b510314c4378dd7cf944129bd.ctex"
+uid="uid://x6m0r7dyh6g3"
+path="res://.godot/imported/uvaicon.png-1fe4cd2c3463b8e065ec206b69edfa41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Broto.png"
-dest_files=["res://.godot/imported/Broto.png-5733115b510314c4378dd7cf944129bd.ctex"]
+source_file="res://assets/uvaicon.png"
+dest_files=["res://.godot/imported/uvaicon.png-1fe4cd2c3463b8e065ec206b69edfa41.ctex"]
 
 [params]
 

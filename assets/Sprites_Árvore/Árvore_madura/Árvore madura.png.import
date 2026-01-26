@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o8g0t1ospds7"
-path="res://.godot/imported/inventário.png-cf83938c5d68c82129eeefc1bd86acd6.ctex"
+uid="uid://drbd06vfhh5vy"
+path="res://.godot/imported/Árvore madura.png-e6cf4124a956490b42cbf2534c19b0db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventário.png"
-dest_files=["res://.godot/imported/inventário.png-cf83938c5d68c82129eeefc1bd86acd6.ctex"]
+source_file="res://assets/Sprites_Árvore/Árvore_madura/Árvore madura.png"
+dest_files=["res://.godot/imported/Árvore madura.png-e6cf4124a956490b42cbf2534c19b0db.ctex"]
 
 [params]
 
