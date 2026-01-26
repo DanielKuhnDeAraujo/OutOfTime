@@ -5,8 +5,9 @@ extends CharacterBody2D
 @onready var animacao: AnimatedSprite2D = $AnimatedSprite2D
 @onready var SpriteInventario = get_parent().get_node("SpriteInventario") 
 @onready var label = get_parent().get_node("Nome") 
+var mao = false
 var eixo
-var liberado
+var liberado = true
 var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
@@ -23,8 +24,8 @@ const JUMP_VELOCITY = -350.0
 var aceleracao: float = 40
 var friccao: float = 70
 func _ready() -> void:
-	animated_sprite_2d_2.position.x = -20
-	area_2d.position.x=-20
+	animated_sprite_2d_2.position.x = -10
+	area_2d.position.x=-10
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -49,16 +50,16 @@ func _physics_process(delta: float) -> void:
 
 		if not eixo :
 			eixo =0
-		animated_sprite_2d_2.position.y = 16*eixo
-		area_2d.position.y=16*eixo
+		animated_sprite_2d_2.position.y = 10*eixo
+		area_2d.position.y=10*eixo
 		if direction:
 			animacao.scale.x = direction
 			if is_on_floor():
 				animacao.play("walk")
 			SPEED = move_toward(SPEED, MAXSPEED * direction, aceleracao)
 			velocity.x = SPEED
-			animated_sprite_2d_2.position.x = 20*direction
-			area_2d.position.x=20*direction
+			animated_sprite_2d_2.position.x = 10*direction
+			area_2d.position.x=10*direction
 			if direction!= 0 :
 				udirection = direction
 		
@@ -67,7 +68,8 @@ func _physics_process(delta: float) -> void:
 				animacao.play("idle")
 			SPEED = move_toward(SPEED, 0, friccao)
 			velocity.x = SPEED
-		
+		if mao :
+			animacao.play("pegar")
 		move_and_slide()
 		if Input.is_action_pressed("pegar") and not guardado :
 			pegar()
@@ -82,18 +84,21 @@ func _physics_process(delta: float) -> void:
 			get_parent().passado()
 			viajando = true
 func pegar() :
+	mao = true
 	pegar_timer.start()	
 	area_2d.monitoring = true
 	animated_sprite_2d_2.visible = true
 	
 	
 func interagir() :
+	mao = true
 	pegar_timer.start()	
 	area_2d.monitoring = true
 	animated_sprite_2d_2.visible = true
 	interagindo=true
 
 func _on_pegar_timer_timeout() -> void:
+	mao= false
 	area_2d.monitoring = false
 	animated_sprite_2d_2.visible = false
 func _on_area_2d_body_entered(body: Node2D) -> void:

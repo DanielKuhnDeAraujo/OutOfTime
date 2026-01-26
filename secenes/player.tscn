@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2ih5y2lse8i7"]
+[gd_scene load_steps=19 format=3 uid="uid://b2ih5y2lse8i7"]
 
 [ext_resource type="Script" uid="uid://ddcryylbmseba" path="res://scripts/player.gd" id="1_67aaq"]
+[ext_resource type="Texture2D" uid="uid://cwv4dpcuwx8eo" path="res://assets/mao.png" id="2_8brib"]
 [ext_resource type="Texture2D" uid="uid://cfl74f3lp803x" path="res://assets/spritesheet_protagonista.png" id="2_esbok"]
-[ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="3_8brib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8brib"]
-size = Vector2(28, 32)
+size = Vector2(22, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67aaq"]
 size = Vector2(10, 10)
@@ -14,7 +14,7 @@ size = Vector2(10, 10)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8brib")
+"texture": ExtResource("2_8brib")
 }],
 "loop": true,
 "name": &"default",
@@ -32,6 +32,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5s6b"]
 atlas = ExtResource("2_esbok")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1ojo"]
+atlas = ExtResource("2_esbok")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45vra"]
 atlas = ExtResource("2_esbok")
@@ -84,6 +88,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_x1ojo")
+}],
+"loop": true,
+"name": &"pegar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_45vra")
 }],
 "loop": true,
@@ -120,6 +132,7 @@ collision_mask = 5
 script = ExtResource("1_67aaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_8brib")
 
 [node name="pegar_timer" type="Timer" parent="."]
@@ -137,12 +150,11 @@ debug_color = Color(0.85960567, 0.36335176, 0, 0.41960785)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false
-scale = Vector2(0.28125, 0.28124997)
 sprite_frames = SubResource("SpriteFrames_esbok")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_67aaq")
-animation = &"descendo"
+animation = &"pegar"
 
 [connection signal="timeout" from="pegar_timer" to="." method="_on_pegar_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
