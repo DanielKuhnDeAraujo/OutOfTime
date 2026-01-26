@@ -28,7 +28,6 @@ func passado() :
 	checar_idade()
 	get_parent().viajantes-=1
 func checar_idade() :
-	Nome= "Bola de "+ str(Idade)+ " anos."
 	if Idade < 0 :
 		sprite_2d.texture = Spassado
 		Sprite = Spassado
@@ -43,4 +42,4 @@ func _process(delta: float) -> void:
 	pass
 @warning_ignore("unused_parameter")
 func interagir(cena ,idade, nome ,sprite) :
-	print(" Quadrado interação" )
+	pass

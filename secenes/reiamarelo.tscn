@@ -1,8 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwapcce32hvpp"]
+[gd_scene load_steps=9 format=3 uid="uid://cwapcce32hvpp"]
+
+[ext_resource type="Texture2D" uid="uid://cd5v4euc5b022" path="res://assets/sheetRei.png" id="1_41vw2"]
+[ext_resource type="Texture2D" uid="uid://cyrco5rpcy85y" path="res://assets/Rei.png" id="2_cecya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cecya"]
+atlas = ExtResource("1_41vw2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4s61"]
+atlas = ExtResource("1_41vw2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gckjo"]
+atlas = ExtResource("1_41vw2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71f6b"]
+atlas = ExtResource("1_41vw2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_317uh"]
+atlas = ExtResource("2_cecya")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5h4vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cecya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4s61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gckjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71f6b")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_317uh")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}]
 
-[node name="AnimatableBody2D" type="AnimatableBody2D"]
+[node name="rei" type="AnimatableBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5h4vb")
+animation = &"parado"
+autoplay = "parado"
+flip_h = true
