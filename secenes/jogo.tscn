@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="4_1gnu7"]
 [ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_xa44m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xa44m"]
 texture = ExtResource("2_xa44m")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -17,7 +17,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 8388609
-sources/0 = SubResource("TileSetAtlasSource_vhqen")
+sources/0 = SubResource("TileSetAtlasSource_xa44m")
 
 [node name="jogo" type="Node2D"]
 script = ExtResource("1_56hio")

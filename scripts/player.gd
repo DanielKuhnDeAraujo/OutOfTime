@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var SpriteInventario = get_parent().get_node("SpriteInventario") 
 @onready var label = get_parent().get_node("Nome") 
 var eixo
-var liberado
+var liberado = true
 var ItemGuardadoCena
 var ItemGuardadoSprite
 var ItemGuardadoIdade
