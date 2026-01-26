@@ -46,9 +46,10 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_axis("ui_left", "ui_right")
 		eixo = Input.get_axis("ui_up","ui_down")
 
-		if eixo :
-			animated_sprite_2d_2.position.y = 16*eixo
-			area_2d.position.y=16*eixo
+		if not eixo :
+			eixo =0
+		animated_sprite_2d_2.position.y = 16*eixo
+		area_2d.position.y=16*eixo
 		if direction:
 			animacao.scale.x = direction
 			if is_on_floor():
