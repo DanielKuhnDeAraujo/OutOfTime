@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl12faj0ryiou"]
+[gd_scene load_steps=15 format=3 uid="uid://bl12faj0ryiou"]
 
 [ext_resource type="Script" uid="uid://dh2hxwic525j4" path="res://scripts/tutoras.gd" id="1_b2yym"]
 [ext_resource type="Texture2D" uid="uid://dtiyeog25tj4k" path="res://assets/tileholderset.png" id="2_54foe"]
 [ext_resource type="PackedScene" uid="uid://b2ih5y2lse8i7" path="res://secenes/player.tscn" id="3_mtfr6"]
+[ext_resource type="FontFile" uid="uid://bvfihk87sg2c0" path="res://assets/PixelOperator8-Bold.ttf" id="5_54foe"]
 [ext_resource type="Texture2D" uid="uid://66r3uo0h6sni" path="res://assets/moldura.png" id="5_hvkp7"]
 [ext_resource type="PackedScene" uid="uid://cwapcce32hvpp" path="res://secenes/reiamarelo.tscn" id="6_ja8bg"]
 [ext_resource type="PackedScene" uid="uid://blarwmunkrjtj" path="res://secenes/pausa.tscn" id="6_k3e5u"]
 [ext_resource type="Texture2D" uid="uid://bu63x8ry4k64h" path="res://assets/placeholderback.png" id="7_b2yym"]
 [ext_resource type="Texture2D" uid="uid://ckgo5f0egov3o" path="res://assets/back2place.png" id="8_hj14y"]
+[ext_resource type="Script" uid="uid://hn0gp00bjexm" path="res://scripts/dimensiontrigger.gd" id="10_mtfr6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhqen"]
 texture = ExtResource("2_54foe")
@@ -20,6 +22,14 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 8388609
 sources/0 = SubResource("TileSetAtlasSource_vhqen")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtfr6"]
+font = ExtResource("5_54foe")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_hj14y"]
+font = ExtResource("5_54foe")
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="jogo2" type="Node2D"]
 script = ExtResource("1_b2yym")
@@ -50,6 +60,7 @@ offset_left = -233.0
 offset_top = 70.0
 offset_right = -43.0
 offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_mtfr6")
 
 [node name="MenuDePausa" parent="." instance=ExtResource("6_k3e5u")]
 visible = false
@@ -57,7 +68,7 @@ offset_top = 152.0
 offset_bottom = 152.0
 
 [node name="rei" parent="." instance=ExtResource("6_ja8bg")]
-position = Vector2(208, -21)
+position = Vector2(234, -44)
 
 [node name="Placeholderback" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -69,3 +80,17 @@ modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 position = Vector2(-3, 136)
 texture = ExtResource("8_hj14y")
+
+[node name="dimensiontrigger" type="Node" parent="."]
+script = ExtResource("10_mtfr6")
+
+[node name="tempo" type="Label" parent="."]
+offset_left = -171.0
+offset_top = 125.0
+offset_right = 213.0
+offset_bottom = 178.0
+text = "PRESS V TO GO TO THE FUTURE"
+label_settings = SubResource("LabelSettings_hj14y")
+
+[node name="cena1" type="Marker2D" parent="."]
+position = Vector2(143, 91)
